@@ -18,7 +18,7 @@ function SideBar({
   return (
     <div id="side-bar"
 
-    className={`absolute bg-slate-300/80
+    className={`fixed bg-slate-300/80
     top-0 right-0
     h-[100dvh] flex flex-col gap-2
     transition-transform duration-300 ease-in-out
@@ -38,6 +38,16 @@ function SideBar({
         />
       </button>
       
+      <Button
+      className="px-11"
+      variant={"ghost"}
+      onClick={() => window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      })}
+      >
+        Home
+      </Button>
 
       <Button
       className="px-11"
