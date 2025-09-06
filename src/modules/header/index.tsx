@@ -2,7 +2,7 @@ import { IoMdMenu } from "react-icons/io";
 import { useState } from "react";
 import SideBar from "./sidebar";
 import MenuBar from "./menubar";
-import { useScrollInitial } from "@/hooks/useScrollInitial";
+import { useScrollPos } from "@/hooks/useScrollPos";
 // import { useScrollInitial } from "@/hooks/useScrollInitial";
 
 export type sideBarStateType = "open" | "close"
@@ -10,18 +10,18 @@ export type sideBarStateType = "open" | "close"
 function Header() {
 
   const [sideBarState, setSideBarState] = useState<sideBarStateType>("close");
-  const {isScrolled} = useScrollInitial();
+  const {scrollPos} = useScrollPos();
 
 
   return (
     <nav
     className={`
     flex flex-row justify-between
-    mt-4 pt-2 text-2xl w-[100dvw]
+    pt-2 text-2xl w-[100dvw]
     px-[5dvw]
     md:px-[10dvw]
     fixed top-0 z-50 transition-all duration-300
-    ${ isScrolled ? "bg-slate-900/90" : "bg-slate-900/0"}
+    ${ scrollPos>0 ? "bg-slate-900" : "bg-slate-900/0 mt-4"}
     `}
     >
       <button

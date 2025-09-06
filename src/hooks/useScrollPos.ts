@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
 
 type useScrollReturn = {
-    isScrolled: boolean,
-    setIsScrolled: (val: boolean) => void,
+    scrollPos: number,
+    setScrollPos: (val: number) => void,
 }
 
-export function useScrollInitial(): useScrollReturn {
-    const [isScrolled, setIsScrolled] = useState<boolean>(false);
+export function useScrollPos(): useScrollReturn {
+    const [scrollPos, setScrollPos] = useState<number>(0);
     
     useEffect( () => {
     const handleScroll = () => {
         const scrollPos = window.scrollY;
-        setIsScrolled(scrollPos > 0);
+        setScrollPos(scrollPos);
     }
 
     window.addEventListener("scroll", handleScroll);
@@ -20,5 +20,5 @@ export function useScrollInitial(): useScrollReturn {
     }, [])
     // empty dependency array means it will run only once
 
-    return {isScrolled, setIsScrolled};
+    return {scrollPos, setScrollPos};
 }

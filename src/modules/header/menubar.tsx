@@ -1,11 +1,11 @@
-import { useScrollInitial } from "@/hooks/useScrollInitial";
+import { usePagePosition } from "@/hooks/usePagePosition";
 import { cn } from "@/lib/utils"
 
 function MenuBar() {
 
   const buttonCN = "px-5 py-2 hover:cursor-pointer hover:bg-slate-700 rounded-4xl";
 
-  const {isScrolled} = useScrollInitial();
+  const {pageName, pageScrollData} = usePagePosition();
 
   return (
     <div id="menubar"
@@ -16,23 +16,32 @@ function MenuBar() {
     >
     
     <button
-      className={cn(buttonCN, `${isScrolled ? '' : 'bg-slate-700'}`)}
+      className={cn(buttonCN, `${pageName === "Home" ? 'bg-slate-700' : ''}`)}
       onClick={ () => window.scrollTo({
-        top: 0,
+        top: pageScrollData["Home"],
         behavior: "smooth",
       })}
       >
         Home
       </button>
+
+      
     <button
-      className={cn(buttonCN, "")}
-     
+      className={cn(buttonCN, `${pageName === "Projects" ? 'bg-slate-700' : ''}`)}
+      onClick={()=>window.scrollTo({
+        top: pageScrollData["Projects"],
+        behavior: "smooth"
+      })}
       >
         Projects
       </button>
 
       <button
-        className={cn(buttonCN, "")}
+        className={cn(buttonCN, `${pageName === "AboutMe" ?  'bg-slate-700' : ''}`)}
+        onClick={()=> window.scrollTo({
+          top: pageScrollData["AboutMe"],
+          behavior: "smooth",
+        })}
       >
         About Me
       </button>
