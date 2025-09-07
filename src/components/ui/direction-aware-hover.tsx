@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef, useState } from "react";
-
 import { AnimatePresence, motion } from "motion/react";
 import { cn } from "@/lib/utils";
 
@@ -19,7 +18,7 @@ export const DirectionAwareHover = ({
   className?: string;
 }) => {
   const ref = useRef<HTMLDivElement>(null);
-
+  const [isTapped, setIsTapped] = useState(false);
   const [direction, setDirection] = useState<
     "top" | "bottom" | "left" | "right" | string
   >("left");
@@ -50,6 +49,14 @@ export const DirectionAwareHover = ({
     }
   };
 
+  const handleTap = () => {
+    setIsTapped(!isTapped);
+    // Default direction for tap (you can modify this logic if needed)
+    if (!isTapped) {
+      setDirection("bottom");
+    }
+  };
+
   const getDirection = (
     ev: React.MouseEvent<HTMLDivElement, MouseEvent>,
     obj: HTMLElement
@@ -64,9 +71,10 @@ export const DirectionAwareHover = ({
   return (
     <motion.div
       onMouseEnter={handleMouseEnter}
+      onClick={handleTap}
       ref={ref}
       className={cn(
-        "md:h-96 w-60 h-60 md:w-96 bg-transparent rounded-lg overflow-hidden group/card relative",
+        "relative bg-transparent rounded-lg overflow-hidden group/card",
         className
       )}
     >
@@ -74,10 +82,16 @@ export const DirectionAwareHover = ({
         <motion.div
           className="relative h-full w-full"
           initial="initial"
+          animate={isTapped ? direction : "initial"}
           whileHover={direction}
           exit="exit"
         >
-          <motion.div className="group-hover/card:block hidden absolute inset-0 w-full h-full bg-black/40 z-10 transition duration-500" />
+          <motion.div
+            className={cn(
+              "absolute inset-0 w-full h-full bg-black/40 z-10 transition duration-500",
+              isTapped ? "block" : "group-hover/card:block hidden"
+            )}
+          />
           <motion.div
             variants={variants}
             className="h-full w-full relative bg-gray-50 dark:bg-black"
@@ -89,11 +103,9 @@ export const DirectionAwareHover = ({
             <img
               alt="image"
               className={cn(
-                "h-full w-full object-cover scale-[1.15]",
+                "h-full w-full object-cover object-center scale-[1.15]",
                 imageClassName
               )}
-              width="1000"
-              height="1000"
               src={imageUrl}
             />
           </motion.div>
@@ -104,7 +116,7 @@ export const DirectionAwareHover = ({
               ease: "easeOut",
             }}
             className={cn(
-              "text-white absolute bottom-4 left-4 z-40",
+              " text-white absolute top-0 left-0 z-40",
               childrenClassName
             )}
           >
@@ -139,6 +151,8 @@ const variants = {
   },
 };
 
+// Changed all top, bottom, right, left to single direction
+// so that on hover "the cover project title, tags and github doesn't move in any direction"
 const textVariants = {
   initial: {
     y: 0,
@@ -151,11 +165,11 @@ const textVariants = {
     opacity: 0,
   },
   top: {
-    y: -20,
+    x: -2,
     opacity: 1,
   },
   bottom: {
-    y: 2,
+    x: -2,
     opacity: 1,
   },
   left: {
@@ -163,7 +177,7 @@ const textVariants = {
     opacity: 1,
   },
   right: {
-    x: 20,
+    x: -2,
     opacity: 1,
   },
 };

@@ -3,7 +3,6 @@ import { useState } from "react";
 import SideBar from "./sidebar";
 import MenuBar from "./menubar";
 import { useScrollPos } from "@/hooks/useScrollPos";
-// import { useScrollInitial } from "@/hooks/useScrollInitial";
 
 export type sideBarStateType = "open" | "close"
 

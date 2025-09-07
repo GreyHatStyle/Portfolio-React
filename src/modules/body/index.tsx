@@ -1,6 +1,7 @@
 import FirstSection from "./firstSection"
 import Projects from "./projects"
-import AboutMe from "./aboutme"
+import AboutMe from "./about-me"
+import ContactMe from "./contact-me"
 
 function Body() {
   return (
@@ -9,8 +10,8 @@ function Body() {
       <FirstSection/>
       <Projects/>
       <AboutMe/>
-      {/* <ContactMe/> */}
-
+      <ContactMe/>
+      
     </div>
   )
 }

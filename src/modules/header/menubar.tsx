@@ -47,7 +47,11 @@ function MenuBar() {
       </button>
 
       <button
-        className={cn(buttonCN, "")}
+        onClick={()=>window.scrollTo({
+          top: pageScrollData["ContactMe"],
+          behavior: "smooth",
+        })}
+        className={cn(buttonCN,  `${pageName === "ContactMe" ?  'bg-slate-700' : ''}`)}
       >
         Contact Me
       </button>
