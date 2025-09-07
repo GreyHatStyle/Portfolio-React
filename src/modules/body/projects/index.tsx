@@ -1,9 +1,17 @@
+import type { ComponentProps } from "react"
 import ProjectsGrid from "./projects-grid"
 
+interface ProjectsType extends ComponentProps<"section">{
+  ref: React.Ref<HTMLElement>
+}
 
-function Projects() {
+function Projects({
+  ref,
+}: ProjectsType) {
   return (
-    <div
+    <section 
+    id="Projects"
+    ref={ref}
     className=' w-[100dvw] px-[10dvw]'
     >
       
@@ -14,7 +22,7 @@ function Projects() {
 
       <ProjectsGrid />
     
-    </div>
+    </section>
   )
 }
 

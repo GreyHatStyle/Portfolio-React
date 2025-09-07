@@ -1,9 +1,17 @@
+import type { ComponentProps } from "react"
 import IntroCard from "./introCard"
 
+interface FirstSectionProps extends ComponentProps<"section">{
+  ref: React.Ref<HTMLElement>
+} 
 
-function FirstSection() {
+function FirstSection({
+  ref,
+}: FirstSectionProps) {
   return (
-    <div
+    <section 
+    id="Home"
+    ref={ref}
     className="
     bg-[url(/bg-image3.png)] bg-cover
     bg-right lg:bg-top
@@ -24,7 +32,7 @@ function FirstSection() {
       </div>
         
 
-    </div>
+    </section>
   )
 }
 

@@ -9,8 +9,9 @@ export type sideBarStateType = "open" | "close"
 function Header() {
 
   const [sideBarState, setSideBarState] = useState<sideBarStateType>("close");
+  
+  // using scrollPos here instead of navigation store, because I need navbar as soon as I start scrolling.
   const {scrollPos} = useScrollPos();
-
 
   return (
     <nav

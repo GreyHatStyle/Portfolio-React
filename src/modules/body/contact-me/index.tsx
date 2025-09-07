@@ -1,8 +1,16 @@
+import type { ComponentProps } from "react"
 
 
-function ContactMe() {
+interface ContactMeProps extends ComponentProps<"section">{
+  ref: React.Ref<HTMLElement>
+}
+
+function ContactMe({
+  ref,
+}: ContactMeProps) {
   return (
-     <div
+     <section id="ContactMe"
+     ref={ref}
     className='h-[100dvh] w-[100dvw] px-[10dvw]'
     >
       
@@ -10,7 +18,7 @@ function ContactMe() {
       className="pt-[5rem] text-6xl baloo-bhai-2"
       >CONTACT ME</h1>
     
-    </div>
+    </section>
   )
 }
 

@@ -1,6 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import type { sideBarStateType } from ".";
+import { useSectionObserver } from "@/hooks/useSectionObserver";
+import { useNavigationStore } from "@/store/useNavigationStore";
 
 
 
@@ -14,6 +16,8 @@ function SideBar({
     setSideBarState,
 }: SideBarProps) {
 
+  const {refs} = useSectionObserver();
+  const { scrollToSection } = useNavigationStore(); 
     
   return (
     <div id="side-bar"
@@ -41,10 +45,7 @@ function SideBar({
       <Button
       className="px-11"
       variant={"ghost"}
-      onClick={() => window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      })}
+      onClick={() => scrollToSection(refs.homeRef)}
       >
         Home
       </Button>
@@ -52,18 +53,21 @@ function SideBar({
       <Button
       className="px-11"
       variant={"ghost"}
+      onClick={()=> scrollToSection(refs.projRef)}
       >
         Projects
       </Button>
 
       <Button
       variant={"ghost"}
+      onClick={()=> scrollToSection(refs.aboutRef)}
       >
         About Me
       </Button>
 
       <Button
       variant={"ghost"}
+      onClick={()=> scrollToSection(refs.contactRef)}
       >
         Contact Me
       </Button>

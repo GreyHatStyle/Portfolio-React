@@ -1,11 +1,14 @@
-import { usePagePosition } from "@/hooks/usePagePosition";
+import { useSectionObserver } from "@/hooks/useSectionObserver";
 import { cn } from "@/lib/utils"
+import { useNavigationStore } from "@/store/useNavigationStore";
 
 function MenuBar() {
 
   const buttonCN = "px-5 py-2 hover:cursor-pointer hover:bg-slate-700 rounded-4xl";
 
-  const {pageName, pageScrollData} = usePagePosition();
+  // const {pageName: activeSection, pageScrollData} = usePagePosition();
+  const {activeSection, scrollToSection} = useNavigationStore();
+  const {refs} = useSectionObserver();
 
   return (
     <div id="menubar"
@@ -16,42 +19,30 @@ function MenuBar() {
     >
     
     <button
-      className={cn(buttonCN, `${pageName === "Home" ? 'bg-slate-700' : ''}`)}
-      onClick={ () => window.scrollTo({
-        top: pageScrollData["Home"],
-        behavior: "smooth",
-      })}
+      className={cn(buttonCN, `${activeSection === "Home" ? 'bg-slate-700' : ''}`)}
+      onClick={ () => scrollToSection(refs.homeRef)}
       >
         Home
       </button>
 
       
     <button
-      className={cn(buttonCN, `${pageName === "Projects" ? 'bg-slate-700' : ''}`)}
-      onClick={()=>window.scrollTo({
-        top: pageScrollData["Projects"],
-        behavior: "smooth"
-      })}
+      className={cn(buttonCN, `${activeSection === "Projects" ? 'bg-slate-700' : ''}`)}
+      onClick={()=> scrollToSection(refs.projRef)}
       >
         Projects
       </button>
 
       <button
-        className={cn(buttonCN, `${pageName === "AboutMe" ?  'bg-slate-700' : ''}`)}
-        onClick={()=> window.scrollTo({
-          top: pageScrollData["AboutMe"],
-          behavior: "smooth",
-        })}
+        className={cn(buttonCN, `${activeSection === "AboutMe" ?  'bg-slate-700' : ''}`)}
+        onClick={()=> scrollToSection(refs.aboutRef)}
       >
         About Me
       </button>
 
       <button
-        onClick={()=>window.scrollTo({
-          top: pageScrollData["ContactMe"],
-          behavior: "smooth",
-        })}
-        className={cn(buttonCN,  `${pageName === "ContactMe" ?  'bg-slate-700' : ''}`)}
+        className={cn(buttonCN,  `${activeSection === "ContactMe" ?  'bg-slate-700' : ''}`)}
+        onClick={()=> scrollToSection(refs.contactRef)}
       >
         Contact Me
       </button>
