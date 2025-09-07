@@ -13,7 +13,7 @@ function FirstSection({
     id="Home"
     ref={ref}
     className="
-    bg-[url(/bg-image3.png)] bg-cover
+    bg-[url(/bg-image3.webp)] bg-cover
     bg-right lg:bg-top
     h-[100dvh] w-[100dvw]"
     >
