@@ -3,6 +3,8 @@ import "./about-me-global.css"
 import Skills from "./skills"
 import Education from "./education"
 import { cn } from "@/lib/utils"
+import Certificates from "./certificates"
+import Publishes from "./publishes"
 
 interface AboutMeProps extends ComponentProps<"section">{
   ref: React.Ref<HTMLElement>
@@ -83,8 +85,15 @@ function AboutMe({
               ?
             <Skills/>
               :
-            <Education />
-            
+              currentSection === "education"
+                ?
+                <Education />
+                :
+                  currentSection === "certificates"
+                    ?
+                    <Certificates/>
+                    :
+                    <Publishes />  
           }
 
 
