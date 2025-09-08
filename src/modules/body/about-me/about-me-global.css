@@ -1,0 +1,49 @@
+
+
+.about-me-box-styles{
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    grid-template-rows: 500px 1fr;
+    gap: 2rem;
+}
+@media(max-width:760px){
+  .about-me-box-styles{
+    display: grid;
+    grid-template-columns: clamp(280px, 70vw, 500px);
+    grid-template-rows: 500px 1fr;
+    gap: 2rem;
+    justify-content: center;
+    padding: 30px 0;
+}
+}
+
+
+.skills-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(156px, 1fr));
+    gap: 1rem;
+    align-items: start;
+}
+
+
+
+
+/* Alternative: Completely custom scrollbar */
+.custom-scrollbar {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  background: transparent;
+}
+
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #3b82f6;
+  border-radius: 4px;
+  border: none;
+}
+
+

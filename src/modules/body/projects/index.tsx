@@ -16,7 +16,7 @@ function Projects({
     >
       
       <h1
-      className="pt-[5rem] text-6xl baloo-bhai-2"
+      className="pt-[5rem] text-5xl sm:text-6xl baloo-bhai-2"
       >PROJECTS</h1>
 
 

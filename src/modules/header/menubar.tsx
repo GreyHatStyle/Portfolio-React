@@ -13,8 +13,8 @@ function MenuBar() {
   return (
     <div id="menubar"
     className='hidden
-    sm:block text-white
-    text-xl
+     text-white
+    text-xl sm:flex sm:flex-row gap-2 pb-2
     '
     >
     

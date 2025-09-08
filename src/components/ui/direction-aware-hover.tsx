@@ -10,15 +10,19 @@ export const DirectionAwareHover = ({
   childrenClassName,
   imageClassName,
   className,
+  onClick,
+  isTapped,
 }: {
   imageUrl: string;
   children: React.ReactNode | string;
   childrenClassName?: string;
   imageClassName?: string;
   className?: string;
+  onClick:  React.MouseEventHandler<HTMLDivElement>,
+  isTapped: boolean,
 }) => {
   const ref = useRef<HTMLDivElement>(null);
-  const [isTapped, setIsTapped] = useState(false);
+  
   const [direction, setDirection] = useState<
     "top" | "bottom" | "left" | "right" | string
   >("left");
@@ -49,13 +53,7 @@ export const DirectionAwareHover = ({
     }
   };
 
-  const handleTap = () => {
-    setIsTapped(!isTapped);
-    // Default direction for tap (you can modify this logic if needed)
-    if (!isTapped) {
-      setDirection("bottom");
-    }
-  };
+  
 
   const getDirection = (
     ev: React.MouseEvent<HTMLDivElement, MouseEvent>,
@@ -71,7 +69,7 @@ export const DirectionAwareHover = ({
   return (
     <motion.div
       onMouseEnter={handleMouseEnter}
-      onClick={handleTap}
+      onClick={onClick}
       ref={ref}
       className={cn(
         "relative bg-transparent rounded-lg overflow-hidden group/card",
