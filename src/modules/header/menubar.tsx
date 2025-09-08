@@ -9,7 +9,7 @@ function MenuBar() {
   // const {pageName: activeSection, pageScrollData} = usePagePosition();
   const {activeSection, scrollToSection} = useNavigationStore();
   const {refs} = useSectionObserver();
-
+  
   return (
     <div id="menubar"
     className='hidden
@@ -17,7 +17,7 @@ function MenuBar() {
     text-xl sm:flex sm:flex-row gap-2 pb-2
     '
     >
-    
+
     <button
       className={cn(buttonCN, `${activeSection === "Home" ? 'bg-slate-700' : ''}`)}
       onClick={ () => scrollToSection(refs.homeRef)}

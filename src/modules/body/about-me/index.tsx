@@ -2,6 +2,7 @@ import { useState, type ComponentProps } from "react"
 import "./about-me-global.css"
 import Skills from "./skills"
 import Education from "./education"
+import { cn } from "@/lib/utils"
 
 interface AboutMeProps extends ComponentProps<"section">{
   ref: React.Ref<HTMLElement>
@@ -14,7 +15,7 @@ function AboutMe({
 }: AboutMeProps) {
 
     const [currentSection, setCurSection] = useState<AboutSectionTypes>("skills");
-    const buttonCn = "bg-blue-400 px-4 py-2 text-white text-2xl poppins-font hover:cursor-pointer rounded-md";
+    const buttonCn = "bg-blue-400 px-4 py-2 text-white text-2xl poppins-font hover:cursor-pointer rounded-md hover:bg-blue-300 dark:bg-neutral-800 dark:hover:bg-neutral-700";
   
     return (
     <section id="AboutMe"
@@ -33,34 +34,36 @@ function AboutMe({
 
 
         <div id="about-me-buttons"
-        className="bg-blue-50 flex flex-col gap-3 p-5 rounded-lg baloo-bhai-2"
+        className="bg-blue-50 flex flex-col gap-3 p-5 rounded-lg baloo-bhai-2
+        dark:bg-neutral-900 shadow-sm 
+        "
         >
           <h1 className="text-3xl">
-            Navigation Section
+            I am
           </h1>
           <h1 className="mb-2">
-            Kindly click below buttons to know more..
+            A Fourth Year Student of B. Tech CSE, who likes to learn, explore and create new things every day!!
           </h1>
 
-          <button className={buttonCn}
+          <button className={cn(buttonCn, currentSection==="skills" ? "bg-blue-800 dark:bg-blue-500 dark:hover:bg-blue-500 dark:text-black" : "")}
           onClick={() => setCurSection("skills")}
           >
             Skills
           </button>
 
-          <button className={buttonCn}
+          <button className={cn(buttonCn, currentSection==="education" ? "bg-blue-800 dark:bg-blue-500 dark:hover:bg-blue-500 dark:text-black" : "")}
           onClick={() => setCurSection("education")}
           >
             Education
           </button>
 
-          <button className={buttonCn}
+          <button className={cn(buttonCn, currentSection==="certificates" ? "bg-blue-800 dark:bg-blue-500 dark:hover:bg-blue-500 dark:text-black" : "")}
           onClick={() => setCurSection("certificates")}
           >
             Certificates
           </button>
 
-          <button className={buttonCn}
+          <button className={cn(buttonCn, currentSection==="publishes" ? "bg-blue-800 dark:bg-blue-500 dark:hover:bg-blue-500 dark:text-black" : "")}
           onClick={() => setCurSection("publishes")}
           >
             Publishes
@@ -70,7 +73,9 @@ function AboutMe({
 
 
         <div id="about-content"
-        className="bg-blue-50 overflow-y-hidden"
+        className="bg-blue-50 overflow-y-hidden
+        dark:bg-neutral-900 rounded-md shadow-sm 
+        "
         >
 
           {

@@ -1,0 +1,21 @@
+.time-blue-line-extra{
+    display:none
+}
+
+@media(width >= 40rem) and (width < 48rem){
+    .time-blue-line-extra{
+        display: block;
+    }
+}
+
+@media(width >= 48rem) and (width < 64rem){
+    .time-blue-line-extra{
+        display: none;
+    }
+}
+
+@media(width >= 64rem){
+    .time-blue-line-extra{
+        display: block;
+    }
+}

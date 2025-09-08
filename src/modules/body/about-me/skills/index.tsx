@@ -24,7 +24,7 @@ function Skills() {
 
   return (
     <div id="skills-section"
-    className="p-6"
+    className="p-6 "
     >
         <div className="flex flex-col gap-2 mb-4">
             <h1 className="text-4xl baloo-bhai-2">My Skills</h1>
