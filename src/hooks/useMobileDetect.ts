@@ -5,7 +5,7 @@ export function useMobileDetection() {
 
   useEffect(() => {
     const checkMobile = () => {
-      const isMobileDevice = window.innerWidth < 768 || 
+      const isMobileDevice = window.innerWidth < 762 || 
         /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
       setIsMobile(isMobileDevice);
     };

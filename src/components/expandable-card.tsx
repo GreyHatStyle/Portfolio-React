@@ -26,27 +26,57 @@ export default function ExpandableCard({
   const id = useId();
   const isMobile = useMobileDetection();
 
-  // Memoize the callback function
   const handleOutsideClick = useCallback(() => {
     setActive(null);
   }, []);
 
-  // Optimized card click for mobile
+  const closeCard = useCallback(() => {
+    setActive(null);
+  }, []);
+
+  
   const handleCardClick = useCallback((card: CardsType) => {
     if (isMobile) {
-      // Add small delay for mobile to prevent blocking
+      // Add a history entry when opening a card on mobile
+      window.history.pushState({ cardOpen: true }, '');
+      
       requestAnimationFrame(() => {
         setActive(card);
       });
-    } else {
+    } 
+    else {
       setActive(card);
     }
   }, [isMobile]);
 
+  // Handle browser back button
+  useEffect(() => {
+    const handlePopState = () => {
+      // If there's an active card and user hits back button, close it
+      if (active && typeof active === "object") {
+        closeCard();
+      }
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+    };
+  }, [active, closeCard]);
+
+  useEffect(() => {
+    if (!active && isMobile) {
+      if (window.history.state?.cardOpen) {
+        window.history.back();
+      }
+    }
+  }, [active, isMobile]);
+
   useEffect(() => {
     function onKeyDown(event: KeyboardEvent) {
       if (event.key === "Escape") {
-        setActive(false);
+        closeCard();
       }
     }
 
@@ -58,7 +88,7 @@ export default function ExpandableCard({
 
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [active]);
+  }, [active, closeCard]);
 
   // @ts-ignore - useOutsideClick expects non-null ref but this is safe
   useOutsideClick(ref, handleOutsideClick);
@@ -73,7 +103,7 @@ export default function ExpandableCard({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: isMobile ? 0.2 : 0.3 }} // Faster on mobile
+            transition={{ duration: isMobile ? 0.2 : 0.3 }}
             className="fixed inset-0 bg-black/60 h-full w-full z-10"
           />
         )}
@@ -89,7 +119,7 @@ export default function ExpandableCard({
               animate={{ opacity: 1 }}
               exit={{ opacity: 0, transition: { duration: 0.05 } }}
               className="flex absolute top-2 right-2 lg:hidden items-center justify-center bg-white rounded-full h-8 w-8 z-50"
-              onClick={() => setActive(null)}
+              onClick={closeCard}
               whileTap={{ scale: 0.9 }} // Add touch feedback
             >
               <CloseIcon />

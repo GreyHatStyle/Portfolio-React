@@ -2,7 +2,7 @@ import { create } from "zustand"
 
 export type Pages = "Home" | "Projects" | "AboutMe" | "ContactMe"
 
-type AllRefsType = {
+export type AllRefsType = {
     homeRef: React.RefObject<HTMLElement | null>,
     projRef: React.RefObject<HTMLElement | null>,
     aboutRef: React.RefObject<HTMLElement | null>,

@@ -5,7 +5,7 @@ import Education from "./education"
 import { cn } from "@/lib/utils"
 import Certificates from "./certificates"
 import Publishes from "./publishes"
-import { useMobileDetection } from "@/hooks/useMobileDetect"
+import { useNavigationStore } from "@/store/useNavigationStore"
 
 interface AboutMeProps extends ComponentProps<"section">{
   ref: React.Ref<HTMLElement>
@@ -19,7 +19,7 @@ function AboutMe({
 
     const [currentSection, setCurSection] = useState<AboutSectionTypes>("skills");
     const contentRef = useRef<HTMLButtonElement>(null);
-    const isMobile = useMobileDetection();
+    const { refs, activeSection, scrollToSection } = useNavigationStore();
     
     const shadow_class_from_ui = "shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]";
     
@@ -27,11 +27,12 @@ function AboutMe({
     
     const aboutButtonsClickHandle = (section: AboutSectionTypes) =>{
       setCurSection(section);
-        if(isMobile){
+        if(window.innerWidth < 761){
           contentRef.current?.scrollIntoView({behavior: "smooth"});
         }
+        console.log("Window innerW: ", window.innerWidth )
     }
-  
+    
     return (
     <section id="AboutMe"
     ref={ref}
@@ -41,7 +42,20 @@ function AboutMe({
     className="pt-[5rem] text-5xl sm:text-6xl baloo-bhai-2"
     >ABOUT ME</h1>
 
+    <button
+    className={`${activeSection === "AboutMe" ? "block": "hidden"}
+    flex flex-row items-center font-bold text-white
+    md:hidden fixed bg-blue-500 py-2 px-4 rounded-full
+    hover:cursor-pointer 
+    bottom-8 right-4 z-50 ${shadow_class_from_ui}
+    `}
+    onClick={() => scrollToSection(refs.aboutRef)}
+    >
+      About Me
+      <svg className="fill-white"
+      xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" ><path d="M440-240v-368L296-464l-56-56 240-240 240 240-56 56-144-144v368h-80Z"/></svg>
 
+    </button>
 
       <div id="about-me-box"
       className="about-me-box-styles mt-11"

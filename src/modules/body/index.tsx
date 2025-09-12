@@ -3,18 +3,30 @@ import Projects from "./projects"
 import AboutMe from "./about-me"
 import ContactMe from "./contact-me"
 import { useSectionObserver } from "@/hooks/useSectionObserver";
+import { useRef } from "react";
+
 
 function Body() {
 
-  const {refs} = useSectionObserver();
+  const homeRef = useRef<HTMLElement>(null);
+  const projRef = useRef<HTMLElement>(null);
+  const aboutRef = useRef<HTMLElement>(null);
+  const contactRef = useRef<HTMLElement>(null);
+
+  useSectionObserver({
+    homeRef,
+    projRef,
+    aboutRef,
+    contactRef
+  });
 
   return (
     <div>
 
-      <FirstSection ref={refs.homeRef}/>
-      <Projects ref={refs.projRef}/>
-      <AboutMe ref={refs.aboutRef}/>
-      <ContactMe ref={refs.contactRef}/>
+      <FirstSection ref={homeRef}/>
+      <Projects ref={projRef}/>
+      <AboutMe ref={aboutRef}/>
+      <ContactMe ref={contactRef}/>
       
     </div>
   )

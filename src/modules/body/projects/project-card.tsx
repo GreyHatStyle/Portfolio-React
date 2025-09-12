@@ -38,8 +38,6 @@ function ProjectCard({
       window.open(url, "_blank");
     }
 
-    console.log("tab: ", isTapped);
-
   return (
     <DirectionAwareHover
         isTapped={isTapped}
