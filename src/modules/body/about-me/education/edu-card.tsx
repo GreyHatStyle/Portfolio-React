@@ -20,7 +20,7 @@ function EduCard({
 
 
   return (
-    <div className={`p-4 poppins-font flex flex-col gap-2 dark:bg-neutral-800 rounded-lg ${shadow_class_from_ui}`}>
+    <div className={`p-4 mx-2 poppins-font flex flex-col gap-2 dark:bg-neutral-800 rounded-lg ${shadow_class_from_ui}`}>
         <img src={imageUrl} alt="institution-image"
         className="object-cover object-top h-[8rem] w-full rounded-lg"
         />

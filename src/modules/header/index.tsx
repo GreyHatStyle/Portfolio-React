@@ -3,6 +3,7 @@ import { useState } from "react";
 import SideBar from "./sidebar";
 import MenuBar from "./menubar";
 import { useScrollPos } from "@/hooks/useScrollPos";
+import { ThemeToggleButton } from "@/components/themes";
 
 export type sideBarStateType = "open" | "close"
 
@@ -34,17 +35,31 @@ function Header() {
       })} 
       >Manas</button>
 
-      <button id="side-menu-opener"
-      className="px-2 py-1  hover:cursor-pointer
-      sm:hidden
-      "
-      onClick={()=>setSideBarState("open")}
-      >
-      <IoMdMenu
-      fill="white"
-      size={25}
-      />
-      </button>
+      <div>
+
+        <ThemeToggleButton
+          className="sm:hidden mt-1.5"
+          variant={"circle"}
+          start={"top-left"}
+          blur={false}
+        />
+
+
+        <button id="side-menu-opener"
+        className="px-2 py-1  hover:cursor-pointer
+        sm:hidden
+        "
+        onClick={()=>setSideBarState("open")}
+        >
+        <IoMdMenu
+        fill="white"
+        size={25}
+        />
+        </button>
+
+
+      </div>
+
       
       <div id="black-screen"
       onClick={()=>setSideBarState("close")}
@@ -56,6 +71,7 @@ function Header() {
       </div>
     
       <SideBar sideBarState={sideBarState} setSideBarState={setSideBarState}/>
+      
 
       <MenuBar />
 

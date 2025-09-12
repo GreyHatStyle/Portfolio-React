@@ -20,11 +20,11 @@ function AboutMe({
     const [currentSection, setCurSection] = useState<AboutSectionTypes>("skills");
     const contentRef = useRef<HTMLButtonElement>(null);
     const isMobile = useMobileDetection();
-    
+
+    const buttonCn = "bg-blue-400 px-4 py-2 text-white text-2xl poppins-font hover:cursor-pointer rounded-md hover:bg-blue-300 dark:bg-neutral-800 dark:hover:bg-neutral-700";
+
     const shadow_class_from_ui = "shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]";
-    
-    const buttonCn = `bg-neutral-100 border-2 px-4 py-2 text-black text-2xl poppins-font hover:cursor-pointer rounded-md hover:bg-neutral-200 hover:border-neutral-300 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:border-none dark:text-white`;
-    
+
     const aboutButtonsClickHandle = (section: AboutSectionTypes) =>{
       setCurSection(section);
         if(isMobile){
@@ -49,8 +49,8 @@ function AboutMe({
 
 
         <div id="about-me-buttons"
-        className={`bg-white flex flex-col gap-3 p-5 rounded-lg baloo-bhai-2
-        dark:bg-neutral-900 ${shadow_class_from_ui} dark:shadow-none
+        className={`bg-blue-50 flex flex-col gap-3 p-5 rounded-lg baloo-bhai-2
+        dark:bg-neutral-900 ${shadow_class_from_ui}
         `} 
         
         >
@@ -61,19 +61,19 @@ function AboutMe({
             A Fourth Year Student of B. Tech CSE, who likes to learn, explore and create new things every day!!
           </h1>
 
-          <button className={cn(buttonCn, currentSection==="skills" ? "bg-neutral-800 dark:bg-blue-500 hover:bg-neutral-800 dark:hover:bg-blue-500 dark:text-black text-white" : "")}
+          <button className={cn(buttonCn, currentSection==="skills" ? "bg-blue-800 dark:bg-blue-500 hover:bg-blue-800 dark:hover:bg-blue-500 dark:text-black" : "")}
           onClick={() => aboutButtonsClickHandle("skills")}
           >
             Skills
           </button>
 
-          <button className={cn(buttonCn, currentSection==="education" ? "bg-neutral-800 dark:bg-blue-500 hover:bg-neutral-800 dark:hover:bg-blue-500 dark:text-black text-white" : "")}
+          <button className={cn(buttonCn, currentSection==="education" ? "bg-blue-800 dark:bg-blue-500 hover:bg-blue-800 dark:hover:bg-blue-500 dark:text-black" : "")}
           onClick={() => aboutButtonsClickHandle("education")}
           >
             Education
           </button>
 
-          <button className={cn(buttonCn, currentSection==="certificates" ? "bg-neutral-800 dark:bg-blue-500 hover:bg-neutral-800 dark:hover:bg-blue-500 dark:text-black text-white" : "")}
+          <button className={cn(buttonCn, currentSection==="certificates" ? "bg-blue-800 dark:bg-blue-500 hover:bg-blue-800 dark:hover:bg-blue-500 dark:text-black" : "")}
           onClick={() => aboutButtonsClickHandle("certificates")}
           >
             Certificates
@@ -81,7 +81,7 @@ function AboutMe({
 
           <button 
           ref={contentRef}
-          className={cn(buttonCn, currentSection==="publishes" ? "bg-neutral-800 dark:bg-blue-500 hover:bg-neutral-800 dark:hover:bg-blue-500 dark:text-black text-white" : "")}
+          className={cn(buttonCn, currentSection==="publishes" ? "bg-blue-800 dark:bg-blue-500 hover:bg-blue-800 dark:hover:bg-blue-500 dark:text-black" : "")}
           onClick={() => aboutButtonsClickHandle("publishes")}
           >
             Publishes
@@ -91,8 +91,8 @@ function AboutMe({
           
 
         <div id="about-content"
-        className={`bg-white overflow-y-hidden ${shadow_class_from_ui} rounded-md 
-        dark:bg-neutral-900 dark:shadow-none
+        className={`bg-blue-50 overflow-y-hidden 
+        dark:bg-neutral-900 rounded-md ${shadow_class_from_ui} 
         `}
         >
           {

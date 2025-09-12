@@ -38,17 +38,8 @@ const cards = [
     content: () => {
       return (
         <p>
-          Participated in <b> 2024 4th International Conference on Sustainable Expert Systems (ICSES) </b> and successfully published the research paper
-          <span> </span>
-          <a 
-          className="text-blue-300" target="_blank" 
-          href="https://ieeexplore.ieee.org/document/10763371"> 
-          
-          Titanic Disaster Survival Rate 
-          </a>
-          <span> </span>
-          with my team, under the mentorship of
-          <span> </span>
+          Participated in <b> 2024 4th International Conference on Sustainable Expert Systems (ICSES) </b> and successfully published the research paper Titanic Disaster Survival Rate 
+          with my team, under the mentorship of &nbsp;
           <a className="text-blue-300" target="_blank" 
           href="https://gehu.ac.in/dehradun/computer-science-and-engineering/faculty/dr-amit-gupta/"> 
           
@@ -68,7 +59,7 @@ const cards = [
     content: () => {
       return (
         <p>
-         Successfully completed Introduction to Machine Learning certification Proctored exam, and received <b>Elite Certificate</b> with <b>71% score</b> overall.
+         Gave Introduction to Machine Learning certification Proctored exam, and received <b>Elite Certificate</b> with <b>71% score</b> overall.
         </p>
       );
     },
@@ -110,7 +101,7 @@ const cards = [
     content: () => {
       return (
         <p>
-          I typed for 2 mins straight in <b>76 wpm</b> typing speed with <b>100%</b> accuracy, successfully.
+          I successfully typed for 2 mins straight in <b>76 wpm</b> typing speed with <b>100%</b> accuracy.
         </p>
       );
     },

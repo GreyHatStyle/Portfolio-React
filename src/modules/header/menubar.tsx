@@ -1,3 +1,4 @@
+import { ThemeToggleButton } from "@/components/themes";
 import { useSectionObserver } from "@/hooks/useSectionObserver";
 import { cn } from "@/lib/utils"
 import { useNavigationStore } from "@/store/useNavigationStore";
@@ -14,9 +15,17 @@ function MenuBar() {
     <div id="menubar"
     className='hidden
      text-white
-    text-xl sm:flex sm:flex-row gap-2 pb-2
+     text-sm
+    lg:text-lg sm:flex sm:flex-row gap-2 pb-2
     '
     >
+
+      <ThemeToggleButton
+        className="mt-1.5"
+        variant={"circle"}
+        start={"top-left"}
+        blur={false}
+      />
 
     <button
       className={cn(buttonCN, `${activeSection === "Home" ? 'bg-slate-700' : ''}`)}

@@ -146,9 +146,12 @@
   font-style: normal;
 }
 
-
 body{
   box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+html {
   overflow-x: hidden;
 }
 

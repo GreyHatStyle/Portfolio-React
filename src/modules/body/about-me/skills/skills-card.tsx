@@ -22,7 +22,7 @@ function SkillsCard({
 
       <TooltipTrigger asChild>
         <div 
-          className={cn("p-11 bg-blue-100 rounded-2xl hover:cursor-pointer group dark:bg-neutral-800", className)}>
+          className={cn("p-11 bg-neutral-100 border-2 rounded-2xl hover:cursor-pointer group dark:bg-neutral-800 dark:border-none", className)}>
 
             <div className="group-hover:text-blue-500 group-hover:scale-110 transition-all duration-300 text-center flex flex-col justify-center items-center">
               {children}
