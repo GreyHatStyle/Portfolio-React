@@ -118,7 +118,7 @@ function AboutMe({
             {/* For because of using hidden this component was glitching in useScroll internally so used this instead */}
             {currentSection === "education" && <Education />}
 
-            <Education className={`${currentSection==="education" ? 'block' : 'hidden'}`} />
+            {/* <Education className={`${currentSection==="education" ? 'block' : 'hidden'}`} /> */}
             <Certificates className={`${currentSection==="certificates" ? 'block' : 'hidden'}`} />
 
             <Publishes className={`${currentSection==="publishes" ? 'block' : 'hidden'}`} />

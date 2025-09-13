@@ -1,3 +1,4 @@
+import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 
 interface EduCardProps{
     imageUrl: string,
@@ -20,22 +21,58 @@ function EduCard({
 
 
   return (
-    <div className={`p-4 mx-2 poppins-font flex flex-col gap-2 dark:bg-neutral-800 rounded-lg ${shadow_class_from_ui}`}>
-        <img src={imageUrl} alt="institution-image"
+    // <div className={`p-4 mx-2 poppins-font flex flex-col gap-2 dark:bg-neutral-800 rounded-lg ${shadow_class_from_ui}`}>
+    //     <img src={imageUrl} alt="institution-image"
+    //     className="object-cover object-top h-[8rem] w-full rounded-lg"
+    //     />
+
+    //     <h1
+    //     className="text-2xl"
+    //     >{institutionName}</h1>
+        
+    //     <p>{course} <b>{ currentlyAttending && "(Currently Attending)"}</b></p>
+        
+        
+    //     <p
+    //     className="font-bold"
+    //     >{grade}</p>
+    // </div>
+
+    <CardContainer className="inter-var">
+      <CardBody className={`p-4 mx-2 poppins-font flex flex-col gap-2 dark:bg-neutral-800 rounded-lg ${shadow_class_from_ui}`}>
+        
+        <CardItem translateZ="100" className="w-full mt-4">
+          <img src={imageUrl} alt="institution-image"
         className="object-cover object-top h-[8rem] w-full rounded-lg"
         />
+        </CardItem>
+        
+          <CardItem
+            translateZ={20}
+            as="h1"
+            className="text-2xl"
+          >
+            {institutionName}
+          </CardItem>
 
-        <h1
-        className="text-2xl"
-        >{institutionName}</h1>
+          <CardItem
+            translateZ={20}
+            as="p"
+          >
+           {course} <b>{ currentlyAttending && "(Currently Attending)"}</b>
+          </CardItem>
+
+          <CardItem
+            translateZ={20}
+            as="p"
+            className="font-bold"
+          >
+           {grade}
+          </CardItem>
         
-        <p>{course} <b>{ currentlyAttending && "(Currently Attending)"}</b></p>
-        
-        
-        <p
-        className="font-bold"
-        >{grade}</p>
-    </div>
+      </CardBody>
+    </CardContainer>
+
   )
 }
 
