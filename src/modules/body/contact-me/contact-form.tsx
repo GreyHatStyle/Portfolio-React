@@ -186,9 +186,6 @@ export default function ContactForm() {
         else if (error.response?.status === 429) {
           setResult("Too many requests. Please wait and try again.");
         } 
-        else if (error.response?.status >= 500) {
-          setResult("Server error. Please try again later.");
-        } 
         else {
           setResult("Network error. Please check your connection and try again.");
         }
