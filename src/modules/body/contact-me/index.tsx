@@ -13,7 +13,7 @@ function ContactMe({
   return (
      <section id="ContactMe"
      ref={ref}
-    className='w-[100dvw] px-[10dvw] lg:h-[100dvh]'
+    className='w-[100dvw] px-[10dvw]'
     >
       
       <h1

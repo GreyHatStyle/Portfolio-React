@@ -16,7 +16,7 @@ function Education({
     >
 
       <div className="flex flex-col gap-2 mb-4">
-            <h1 className="text-4xl baloo-bhai-2">My Education</h1>
+            <h1 className="text-4xl baloo-bhai-2 dark:text-blue-400">My Education</h1>
             <p></p>
 
       </div>

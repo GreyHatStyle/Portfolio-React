@@ -137,7 +137,7 @@ function Certificates({
     >
 
       <div className="flex flex-col gap-2 mb-4">
-            <h1 className="text-4xl baloo-bhai-2">My Certificates</h1>
+            <h1 className="text-4xl baloo-bhai-2 dark:text-blue-400">My Certificates</h1>
             <p></p>
 
       </div>

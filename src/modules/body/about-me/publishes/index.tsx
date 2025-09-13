@@ -42,7 +42,7 @@ function Publishes({
       className={cn("p-6", className)}
       >
           <div className="flex flex-col gap-2 mb-4">
-              <h1 className="text-4xl baloo-bhai-2">My Publishes</h1>
+              <h1 className="text-4xl baloo-bhai-2 dark:text-blue-400">My Publishes</h1>
               <p>Following below are my published <b>Research Papers</b></p>
 
 
