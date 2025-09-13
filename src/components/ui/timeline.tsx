@@ -47,6 +47,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
         <p className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base max-w-sm">
           From school foundations to pursuing B.Tech in Computer Science and Engineering — my educational journey so far.
         </p>
+          <b> Please Scroll Down to view my Journey</b>
       </div>
 
       <div ref={ref} className="relative max-w-7xl mx-auto pb-20">

@@ -1,5 +1,6 @@
 
 import ExpandableCard from "@/components/expandable-card"
+import { cn } from "@/lib/utils";
 
 const cards = [
   {
@@ -122,12 +123,17 @@ const cards = [
   },
 ];
 
+type CertificateProps = {
+  className?: string
+}
 
 
-function Certificates() {
+function Certificates({
+  className,
+}: CertificateProps) {
   return (
     <div id="certificate-section"
-    className="p-6"
+    className={cn("p-6", className)}
     >
 
       <div className="flex flex-col gap-2 mb-4">

@@ -36,7 +36,7 @@ function AboutMe({
     return (
     <section id="AboutMe"
     ref={ref}
-     className='w-[100dvw] px-[10dvw]'>
+     className='w-[100dvw] px-[10dvw] md:h-[100dvh]'>
         
     <h1
     className="pt-[5rem] text-5xl sm:text-6xl baloo-bhai-2"
@@ -68,7 +68,7 @@ function AboutMe({
         `} 
         
         >
-          <h1 className="text-3xl">
+          <h1 className="text-4xl dark:text-blue-400">
             I am
           </h1>
           <h1 className="mb-2">
@@ -109,20 +109,20 @@ function AboutMe({
         dark:bg-neutral-900 dark:shadow-none
         `}
         >
+          {/* Changed the way to optimize the flow (component prakat aur gaayab hone se accha ha hidden rahe) */}
+
           {
-            currentSection === "skills"
-              ?
-            <Skills/>
-              :
-              currentSection === "education"
-                ?
-                <Education />
-                :
-                  currentSection === "certificates"
-                    ?
-                    <Certificates/>
-                    :
-                    <Publishes />  
+          <>
+            <Skills className={`${currentSection==="skills" ? 'block' : 'hidden'}`} />
+            
+            {/* For because of using hidden this component was glitching in useScroll internally so used this instead */}
+            {currentSection === "education" && <Education />}
+
+            <Education className={`${currentSection==="education" ? 'block' : 'hidden'}`} />
+            <Certificates className={`${currentSection==="certificates" ? 'block' : 'hidden'}`} />
+
+            <Publishes className={`${currentSection==="publishes" ? 'block' : 'hidden'}`} />
+          </>
           }
 
 

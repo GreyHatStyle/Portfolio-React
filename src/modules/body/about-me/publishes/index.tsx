@@ -1,3 +1,4 @@
+import { cn } from "@/lib/utils"
 import type { RpDataType } from "./rp-card"
 import RpCards from "./rp-card"
 
@@ -27,12 +28,18 @@ const data: RpDataType[] = [
 
 ]
 
+type PublishesProps = {
+  className?: string
+}
 
-function Publishes() {
+
+function Publishes({
+  className,
+}: PublishesProps) {
   return (
     <div>
       <div id="publishes-section"
-      className="p-6 "
+      className={cn("p-6", className)}
       >
           <div className="flex flex-col gap-2 mb-4">
               <h1 className="text-4xl baloo-bhai-2">My Publishes</h1>
@@ -42,7 +49,7 @@ function Publishes() {
           </div>
 
           <div id="publish-content"
-          className="overflow-y-scroll h-[320px] custom-scrollbar"
+          className="overflow-y-scroll h-[360px] custom-scrollbar"
           >
 
               <RpCards data={data} />

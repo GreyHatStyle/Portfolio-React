@@ -1,4 +1,6 @@
 import type { ComponentProps } from "react"
+import ContactForm from "./contact-form"
+import OtherInfo from "./other-info"
 
 
 interface ContactMeProps extends ComponentProps<"section">{
@@ -11,12 +13,24 @@ function ContactMe({
   return (
      <section id="ContactMe"
      ref={ref}
-    className='h-[100dvh] w-[100dvw] px-[10dvw]'
+    className='w-[100dvw] px-[10dvw] lg:h-[100dvh]'
     >
       
       <h1
       className="pt-[5rem] text-5xl sm:text-6xl baloo-bhai-2"
       >CONTACT ME</h1>
+
+      
+      <div id="contact-content"
+      className="w-full mt-[3rem] mb-[4rem] lg:mt-auto gap-[5rem]
+      flex flex-col-reverse lg:flex-row items-center">
+
+        <ContactForm />
+
+        <OtherInfo />
+
+      </div>
+
 
     
     </section>

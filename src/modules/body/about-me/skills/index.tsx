@@ -13,21 +13,28 @@ import {
 } from "@/components/ui/select"
 import DbSkills from "./db-skills"
 import MlSkills from "./ml-skills"
+import { cn } from "@/lib/utils"
 
 
 type SelectOptionsType = "dev" | "ml" | "db"
 
-function Skills() {
+type SkillsProps = {
+  className?: string
+}
+
+function Skills({
+  className,
+}: SkillsProps) {
     const [selectOptionState, setSelectOptionState] = useState<SelectOptionsType>("dev");
     // console.log("Selected option: ", selectOptionState);
 
 
   return (
     <div id="skills-section"
-    className="p-6 "
+    className={cn("p-6", className)}
     >
         <div className="flex flex-col gap-2 mb-4">
-            <h1 className="text-4xl baloo-bhai-2">My Skills</h1>
+            <h1 className="text-4xl baloo-bhai-2 dark:text-blue-400">My Skills</h1>
             <p>Following below are my Technical Skills</p>
 
             <Select 

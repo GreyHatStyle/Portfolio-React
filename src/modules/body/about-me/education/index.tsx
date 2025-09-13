@@ -1,12 +1,18 @@
+import { cn } from "@/lib/utils"
 import { EducationTimeline } from "./edu-timeline"
 
+type EducationProps = {
+  className?: string
+}
 
 
-function Education() {
+function Education({
+  className,
+}: EducationProps) {
   return (
     
     <div id="education-section"
-    className="p-6"
+    className={cn("p-6", className)}
     >
 
       <div className="flex flex-col gap-2 mb-4">

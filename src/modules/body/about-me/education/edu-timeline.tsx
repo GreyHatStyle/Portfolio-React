@@ -2,10 +2,17 @@
 import { Timeline } from "@/components/ui/timeline";
 import EduCard from "./edu-card";
 
+const months = ["Jan", "Feb", "March", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"]
+
 export function EducationTimeline() {
+
+  const date = new Date();
+  const year = date.getFullYear();
+  const month = date.getMonth()
+
   const data = [
     {
-      title: "Sept, 2025",
+      title: `${months[month]}, ${year}`,
       content: (
         <EduCard 
         imageUrl="./education/gehu.webp" 
