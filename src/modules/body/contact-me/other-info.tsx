@@ -51,7 +51,7 @@ function OtherInfo() {
             data.map(( card, index: number) => (
 
                 <button
-                id={index.toString()}
+                key={index.toString()}
                 onClick={() => window.open(card.url, "_blank")}
                 className="flex flex-row w-full gap-2 items-center hover:bg-neutral-100 p-2 hover:cursor-pointer
                 dark:hover:bg-neutral-800 hover:scale-105 transition-all duration-500

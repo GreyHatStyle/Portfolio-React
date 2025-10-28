@@ -1,12 +1,13 @@
 import { DirectionAwareHover } from "@/components/ui/direction-aware-hover"
-import { useState } from "react";
+import { useState, type ComponentProps } from "react";
 
-type ProjectCardProps = {
+export interface ProjectCardProps {
     title: string,
     liveUrl?: string,
     imageUrl: string,
     githubUrl: string,
-    children: React.ReactNode
+    children?: React.ReactNode,
+    tagsList?: string[],
 }
 
 function ProjectCard({
@@ -14,8 +15,9 @@ function ProjectCard({
     liveUrl,
     imageUrl,
     githubUrl,
-    children
-}: ProjectCardProps) {
+    children,
+    ...props
+}: ProjectCardProps & ComponentProps<"div">) {
 
     const [isTapped, setIsTapped] = useState<boolean>(false);
 
@@ -40,6 +42,7 @@ function ProjectCard({
 
   return (
     <DirectionAwareHover
+        key={props.key}
         isTapped={isTapped}
         onClick={handleTap}
         className="xl:h-[70dvh] poppins-font"

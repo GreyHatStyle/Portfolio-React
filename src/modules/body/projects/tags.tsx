@@ -16,7 +16,7 @@ function Tags({
     className={
       cn(`
       text-black bg-white/90 
-      px-2 py-1 rounded-3xl text-sm sm:text-md
+      px-2 py-1 rounded-3xl text-[0.7rem] sm:text-md
       
       `, props.className)}>
         {content}
