@@ -1,18 +1,35 @@
-import { SiMysql, SiPostgresql } from "react-icons/si"
-import SkillsCard from "./skills-card"
+import { SiMongodb, SiMysql, SiPostgresql } from "react-icons/si"
+import SkillsCard, { type SkillsCardProps } from "./skills-card"
 
+const dataDbSkills: SkillsCardProps[] = [
+  {
+    hoverText: "MySQL",
+    children: <SiMysql size={40} />
+  },
+  {
+    hoverText: "PostgreSQL",
+    children: <SiPostgresql size={40} />
+  },
+  {
+    hoverText: "MongoDB",
+    children: <SiMongodb size={40} />
+  },
+];
 
 function DbSkills() {
   return (
     <>
-    <SkillsCard hoverText="MySQL">
-        <SiMysql size={40} />
-      </SkillsCard>
+   
 
-      <SkillsCard hoverText="PostgreSQL">
-        <SiPostgresql size={40} />
-      </SkillsCard>
-
+      {
+        dataDbSkills.map((card, index) => (
+          <SkillsCard 
+          key={index}
+          hoverText={card.hoverText}>
+            {card.children}
+          </SkillsCard>
+        ))
+      }
     </>
   )
 }

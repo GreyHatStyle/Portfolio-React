@@ -8,53 +8,71 @@ import {
     SiHtml5,
     SiCss3,
     SiJavascript,
-    SiRedis
+    SiRedis,
+    SiShadcnui,
 } from "react-icons/si"
-import SkillsCard from "./skills-card"
+import SkillsCard, { type SkillsCardProps } from "./skills-card"
+
+const dataDevelopSkills: SkillsCardProps[] = [
+  {
+    hoverText: "Python",
+    children: <SiPython size={40} />
+  },
+  {
+    hoverText: "Django",
+    children: <SiDjango size={40} />
+  },
+  {
+    hoverText: "React JS",
+    children: <SiReact size={40} />
+  },
+  {
+    hoverText: "Typescript",
+    children: <SiTypescript size={40} />
+  },
+  {
+    hoverText: "TailwindCSS",
+    children: <SiTailwindcss size={40} />
+  },
+  {
+    hoverText: "ShadCn",
+    children: <SiShadcnui size={40} />
+  },
+  {
+    hoverText: "FastApi",
+    children: <SiFastapi size={40} />
+  },
+  {
+    hoverText: "HTML5",
+    children: <SiHtml5 size={40} />
+  },
+  {
+    hoverText: "CSS",
+    children: <SiCss3 size={40} />
+  },
+  {
+    hoverText: "Javascript",
+    children: <SiJavascript size={40} />
+  },
+  {
+    hoverText: "Redis",
+    children: <SiRedis size={40} />
+  },
+];
 
 function DevelopmentSkills() {
   return (
     <>
-        <SkillsCard hoverText="Python">
-                <SiPython size={40}/>
-            </SkillsCard>
-
-            <SkillsCard hoverText="Django">
-                <SiDjango size={40}/>
-            </SkillsCard>
-
-            <SkillsCard hoverText="React JS">
-                <SiReact size={40}/>
-            </SkillsCard>
-
-            <SkillsCard hoverText="Typescript">
-                <SiTypescript size={40}/>
-            </SkillsCard>
-            
-            <SkillsCard hoverText="TailwindCSS">
-                <SiTailwindcss size={40}/>
-            </SkillsCard>
-            
-            <SkillsCard hoverText="FastApi">
-                <SiFastapi size={40}/>
-            </SkillsCard>
-            
-            <SkillsCard hoverText="HTML5">
-                <SiHtml5 size={40}/>
-            </SkillsCard>
-            
-            <SkillsCard hoverText="CSS">
-                <SiCss3 size={40}/>
-            </SkillsCard>
-            
-            <SkillsCard hoverText="Javascript">
-                <SiJavascript size={40}/>
-            </SkillsCard>
-            
-            <SkillsCard hoverText="Redis">
-                <SiRedis size={40}/>
-            </SkillsCard>
-    
+      {
+        dataDevelopSkills.map((card, index) => (
+          <SkillsCard 
+            key={index}
+            hoverText={card.hoverText}>
+            {card.children}
+          </SkillsCard>
+        ))
+      }
+      
     </>
   )
 }

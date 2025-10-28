@@ -4,8 +4,9 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip"
 import { cn } from "@/lib/utils"
+import type { ComponentProps } from "react"
 
-interface SkillsCardProps {
+export interface SkillsCardProps {
     children: React.ReactNode
     hoverText: string
     className?: string
@@ -15,10 +16,13 @@ function SkillsCard({
     children,
     hoverText,
     className,
-}: SkillsCardProps) {
+    ...props
+}: SkillsCardProps & ComponentProps<"div">) {
 
   return (
-    <Tooltip>
+    <Tooltip
+    key={props.key}
+    >
 
       <TooltipTrigger asChild>
         <div 
